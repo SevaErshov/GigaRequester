@@ -1,0 +1,26 @@
+[project]
+name = "agents-course"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "SevaErsh",email = "erschidvs@yandex.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "numpy (>=2.3.0,<3.0.0)",
+    "ipykernel (>=6.29.5,<7.0.0)",
+    "ipywidgets (>=8.1.7,<9.0.0)",
+    "langchain-gigachat (>=0.3.10,<0.4.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "langgraph (>=0.4.8,<0.5.0)",
+    "langchain (>=0.3.26,<0.4.0)",
+]
+
+[tool.poetry]
+packages = [{include = "agents_course", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
