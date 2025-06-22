@@ -13,6 +13,17 @@ files = [
 ]
 
 [[package]]
+name = "antiorm"
+version = "1.2.1"
+description = "A Pythonic Helper for DBAPI-2.0 SQL Access"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "antiorm-1.2.1.tar.gz", hash = "sha256:96eb1841ce5163db4cf1dc13f4499ec2d7cffc190cf724b78ffdd3e6b7c4ff93"},
+]
+
+[[package]]
 name = "anyio"
 version = "4.9.0"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
@@ -287,6 +298,34 @@ traitlets = ">=4"
 
 [package.extras]
 test = ["pytest"]
+
+[[package]]
+name = "db"
+version = "0.1.1"
+description = "Databases for Humans"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "db-0.1.1.tar.gz", hash = "sha256:980e772f15c1161d3b287ffec4f144e40961b0b3e6d5102809577870bf6c5808"},
+]
+
+[package.dependencies]
+antiorm = "*"
+
+[[package]]
+name = "db-sqlite3"
+version = "0.0.1"
+description = "sqlite3 driver for db"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "db-sqlite3-0.0.1.tar.gz", hash = "sha256:4dd410aa28a2c5b66de477f9dc62f523133217dd31c7ed7eb085214bea148db9"},
+]
+
+[package.dependencies]
+db = "*"
 
 [[package]]
 name = "debugpy"
@@ -2191,4 +2230,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "71253b3c5396b0e71b77dca7c1a1d77dbf413a9dc50b8201618a684db699885e"
+content-hash = "8dfe423ed3fa4d55046875597d1b14ee290229023ee4b81af32f3226acbe729a"
