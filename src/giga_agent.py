@@ -1,6 +1,8 @@
 from dotenv import find_dotenv, load_dotenv
 from langchain_gigachat.chat_models import GigaChat
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.prebuilt import create_react_agent
+
 
 from src import tools
 
@@ -8,7 +10,8 @@ load_dotenv(find_dotenv())
 
 
 model = GigaChat(
-    model='GigaChat-2',
+    model='GigaChat-Pro',
+    temperature=0,
     verify_ssl_certs=False,
     max_tokens=3500,
 )
@@ -60,4 +63,15 @@ tools = [
 
 agent = create_react_agent(model,
                            tools=tools,
+                           checkpointer=MemorySaver(),
                            prompt=system_prompt)
+
+def chat(thread_id: str):
+    config = {"configurable": {"thread_id": thread_id}}
+    while(True):
+        rq = input("\nПользовательn: ")
+        print("Пользователь: ", rq)
+        if rq == "":
+            break
+        resp = agent.invoke({"messages": [("user", rq)]}, config=config)
+        print("Ассистент: ", resp["messages"][-1].content)
